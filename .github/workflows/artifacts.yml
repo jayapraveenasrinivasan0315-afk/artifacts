@@ -8,9 +8,9 @@ jobs:
       - shell: bash
         run: expr 3+5 > artifacts.txt
       - name: creating test file
-        run: echo "Test Results: All tests passed" > test_results.txt
+        run: echo "All tests passed" > test_results.txt
       - name: creating log file
-        run: echo "$(date): Workflow started" > workflow.log
+        run: echo "$(date) Workflow started" > workflow.log
       - name: uploading the artifact
         uses: actions/upload-artifact@v5
         with:
