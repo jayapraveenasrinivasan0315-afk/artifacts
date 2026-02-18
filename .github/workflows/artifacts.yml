@@ -8,7 +8,7 @@ jobs:
       - name: creating a file
         run: echo "this is a file created for artifact upload and download" > uplaod and download artifacts.txt
       - name: uploading the artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v6
         with:
           name: my-artifact
           path: uplaod and download artifacts.txt
@@ -19,6 +19,6 @@ jobs:
       - name: checking the contents of the artifact
         run: cat uplaod and download artifacts.txt
       - name: downloading the artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v6
         with:
           name: my-artifact
