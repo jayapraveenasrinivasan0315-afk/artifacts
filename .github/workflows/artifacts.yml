@@ -1,2 +1,24 @@
-name: upload and download artifacts
-on: workflow_dispatch
+name: uplaod and download artifacts
+on: workflows-dispatch
+jobs:
+  upload-artifacts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: creating a file
+        run: echo "this is a file created for artifact upload and download" > uplaod and download artifacts.txt
+      - name: uploading the artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: uplaod and download artifacts.txt
+job:
+  download-artifacts:
+    runs-on: ubuntu-latest
+    needs: upload-artifacts
+    steps:
+      - name: checking the contents of the artifact
+        run: cat uplaod and download artifacts.txt
+      - name: downloading the artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: my-artifact
