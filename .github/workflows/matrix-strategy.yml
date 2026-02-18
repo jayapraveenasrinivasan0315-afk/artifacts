@@ -1,13 +1,13 @@
 name: matrix strategy workflow
 on:
   pull_request:
-strategy:
-  matrix:
-    python-version: [3.8, 3.9, 3.10]
-    os: [ubuntu-latest, windows-latest, macos-latest]
 jobs:
   build:
     runs-on: ${{ matrix.os}}
+    strategy:
+      matrix:
+      python-version: [3.8, 3.9, 3.10]
+      os: [ubuntu-latest, windows-latest, macos-latest]
     steps:
       - name: checking out the code
         uses: actions/checkout@v3
