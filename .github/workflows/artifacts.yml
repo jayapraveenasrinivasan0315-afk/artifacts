@@ -5,10 +5,10 @@ jobs:
   upload-artifacts:
     runs-on: ubuntu-latest
     steps:
-      - name: creating a file
-        run: echo "this is a file created for artifact upload and download" > artifacts.txt
+      - shell: bash
+        run: expr 3+5 > artifacts.txt
       - name: uploading the artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v5
         with:
           name: my-artifact
           path: artifacts.txt
@@ -17,7 +17,7 @@ jobs:
     needs: upload-artifacts
     steps:
       - name: downloading the artifact
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v5
         with:
           name: my-artifact
       - name: checking the contents of the artifact
