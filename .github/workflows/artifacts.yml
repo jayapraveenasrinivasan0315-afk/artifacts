@@ -1,6 +1,6 @@
 name: uplaod and download artifacts
-on: 
-  workflows-dispatch
+on:
+  workflow_dispatch:
 jobs:
   upload-artifacts:
     runs-on: ubuntu-latest
@@ -12,7 +12,6 @@ jobs:
         with:
           name: my-artifact
           path: uplaod and download artifacts.txt
-job:
   download-artifacts:
     runs-on: ubuntu-latest
     needs: upload-artifacts
