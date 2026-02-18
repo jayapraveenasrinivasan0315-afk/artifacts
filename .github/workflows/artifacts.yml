@@ -7,11 +7,18 @@ jobs:
     steps:
       - shell: bash
         run: expr 3+5 > artifacts.txt
+      - name: creating test file
+        run: echo "Test Results: All tests passed" > test_results.txt
+      - name: creating log file
+        run: echo "$(date): Workflow started" > workflow.log
       - name: uploading the artifact
         uses: actions/upload-artifact@v5
         with:
           name: my-artifact
-          path: artifacts.txt
+          path: |
+            artifacts.txt
+            test_results.txt
+            workflow.log
   download-artifacts:
     runs-on: ubuntu-latest
     needs: upload-artifacts
